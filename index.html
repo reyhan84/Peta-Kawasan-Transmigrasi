@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web GIS Kawasan Transmigrasi</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('map.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, rgba(70,130,180,1) 0%, rgba(0,128,0,1) 100%);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 40px;
+            margin: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            color: #333;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .container h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .map-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .map-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .creator-section {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            color: #333;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            visibility: hidden;
+        }
+
+        .creator-section img {
+            border-radius: 50%;
+            margin-right: 20px;
+            width: 150px;
+            height: 150px;
+        }
+
+        .creator-section div {
+            flex: 1;
+        }
+
+        .creator-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .creator-section p {
+            line-height: 1.6;
+            color: #666;
+        }
+
+        footer {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo">
+    <nav>
+        <a href="#">Dashboard</a>
+        <a href="#">Menu</a>
+        <a href="#">Artikel</a>
+        <a href="#">FAQ</a>
+        <a onclick="showCreatorSection()">Kontak</a>
+    </nav>
+</header>
+
+<div class="container" id="welcome-section">
+    <h1>Selamat Datang di Web GIS Kawasan Transmigrasi</h1>
+    <p>Aplikasi Web GIS ini menyediakan informasi detail mengenai distribusi dan status kawasan transmigrasi. Pengguna dapat menjelajahi berbagai wilayah, mempelajari sejarah dan keadaan terkini proyek transmigrasi, serta melihat peta interaktif.</p>
+    <a href="peta.html" class="map-button">Lihat Peta</a>
+    <p>Temukan lebih lanjut tentang kawasan transmigrasi dengan menjelajahi peta interaktif kami.</p>
+</div>
+
+
+<div id="creator-section" class="creator-section">
+    <img src="foto.JPG" alt="Foto Pembuat">
+    <div>
+        <h2>Tentang Pembuat</h2>
+        <p>Nama: Reihan Deirengga</p>
+        <p>Email: reihandeirengga842@gmail.com</p>
+        <p>Telepon: 085760049745</p>
+        <p>Alamat: Kubang Putiah, Bukttinggi, Sumatera Barat, Indonesia</p>
+        <p>Github: <a href="https://github.com/reyhan84" target="_blank">github.com</a></p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Web GIS Kawasan Transmigrasi</p>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var welcomeSection = document.getElementById('welcome-section');
+        welcomeSection.style.opacity = 1;
+        welcomeSection.style.transform = 'translateY(0)';
+    });
+
+    function showCreatorSection() {
+        var section = document.getElementById('creator-section');
+        section.style.visibility = 'visible';
+        section.style.opacity = 1;
+        section.style.transform = 'translateY(0)';
+        window.location.hash = '#creator-section';
+    }
+</script>
+
+</body>
+</html>
